@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DirectionalLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:height="match_parent"
+    ohos:width="100vp"
+    ohos:orientation="horizontal">
+<Image
+    ohos:id="$+id:icon"
+    ohos:width="40vp"
+    ohos:height="40vp"
+    ohos:background_element="#00ff00"/>
+    <DirectionalLayout
+        ohos:alignment="center"
+        ohos:width="match_parent"
+        ohos:height="match_content"
+        ohos:orientation="vertical">
+        <Text
+            ohos:id="$+id:name"
+            ohos:width="match_parent"
+            ohos:height="20vp"
+            ohos:weight="1"
+            ohos:text="名字"/>
+        <Text
+            ohos:id="$+id:age"
+            ohos:width="match_parent"
+            ohos:height="match_content"
+            ohos:text="年龄"
+            ohos:weight="1"/>
+    </DirectionalLayout>
+</DirectionalLayout>
