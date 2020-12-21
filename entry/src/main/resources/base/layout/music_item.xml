@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DirectionalLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:height="120vp"
+    ohos:width="match_parent"
+    ohos:orientation="vertical">
+<Text
+    ohos:id="$+id:title"
+    ohos:height="20vp"
+    ohos:width="match_content"
+    ohos:text="推荐专辑"/>
+    <ListContainer
+        ohos:id="$+id:listContainer"
+        ohos:height="100vp"
+        ohos:width="match_parent"
+        ohos:orientation="horizontal"/>
+
+</DirectionalLayout>

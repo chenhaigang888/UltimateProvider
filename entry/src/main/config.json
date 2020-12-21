@@ -43,6 +43,33 @@
         "label": "UltimateProviderDemo",
         "type": "page",
         "launchType": "standard"
+      },
+      {
+        "orientation": "unspecified",
+        "name": "com.chg.ultimateproviderdemo.Menu.Ability.SongAbility",
+        "icon": "$media:icon",
+        "description": "$string:mainability_description",
+        "label": "UltimateProviderDemo",
+        "type": "page",
+        "launchType": "standard"
+      },
+      {
+        "orientation": "unspecified",
+        "name": "com.chg.ultimateproviderdemo.Menu.Ability.RecommendAbility",
+        "icon": "$media:icon",
+        "description": "$string:mainability_description",
+        "label": "UltimateProviderDemo",
+        "type": "page",
+        "launchType": "standard"
+      },
+      {
+        "orientation": "unspecified",
+        "name": "com.chg.ultimateproviderdemo.Menu.Ability.NestedListAbility",
+        "icon": "$media:icon",
+        "description": "$string:mainability_description",
+        "label": "UltimateProviderDemo",
+        "type": "page",
+        "launchType": "standard"
       }
     ]
   }

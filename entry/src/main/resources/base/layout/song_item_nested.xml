@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<DirectionalLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:width="100vp"
+    ohos:height="match_content"
+    ohos:orientation="vertical"
+    ohos:top_margin="5vp"
+    ohos:bottom_margin="5vp"
+    ohos:left_margin="5vp"
+    ohos:right_margin="5vp"
+    >
+    <Image
+        ohos:id="$+id:icon"
+        ohos:height="30vp"
+        ohos:width="30vp"
+        ohos:layout_alignment="horizontal_center"
+
+        ohos:image_src="$media:music"
+        ohos:scale_mode="zoom_center"/>
+    <Text
+        ohos:id="$+id:songName"
+        ohos:text_size="13fp"
+        ohos:layout_alignment="horizontal_center"
+        ohos:text_alignment="center"
+        ohos:height="match_content"
+        ohos:width="match_parent"/>
+    <Text
+        ohos:id="$+id:songer"
+        ohos:layout_alignment="horizontal_center"
+        ohos:text_alignment="center"
+        ohos:height="match_content"
+        ohos:width="match_parent"/>
+</DirectionalLayout>
