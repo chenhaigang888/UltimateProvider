@@ -22,7 +22,7 @@ public class NestedSongViewHolder extends ViewHolder<NestedSongModel> {
     }
 
     @Override
-    public void onBindModel() {
+    public void onDataBound() {
         songName.setText(getModel().getName());
         songer.setText(getModel().getSinger());
     }

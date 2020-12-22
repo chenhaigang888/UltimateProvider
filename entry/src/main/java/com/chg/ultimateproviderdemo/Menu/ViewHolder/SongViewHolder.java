@@ -23,7 +23,7 @@ public class SongViewHolder extends ViewHolder<SongModel> {
     }
 
     @Override
-    public void onBindModel() {
+    public void onDataBound() {
         songName.setText(getModel().getName());
         songer.setText(getModel().getSinger());
     }

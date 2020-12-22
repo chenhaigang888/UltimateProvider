@@ -20,8 +20,9 @@ public class MenuItemViewHolder extends ViewHolder<MenuItem> {
     }
 
     @Override
-    public void onBindModel() {
+    public void onDataBound() {
         title.setText(getModel().getTitle());
         desc.setText(getModel().getDesc());
     }
+
 }

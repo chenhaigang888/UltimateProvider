@@ -8,6 +8,7 @@
         ohos:height="match_parent"
         ohos:width="match_parent"
         ohos:top_margin="10vp"
+        ohos:left_margin="10vp"
         ohos:orientation="horizontal">
 <Image
     ohos:id="$+id:icon"
@@ -36,24 +37,27 @@
         ohos:height="match_content"
         ohos:width="match_parent"
         ohos:bottom_margin="10vp"
-        ohos:top_margin="5vp"
+        ohos:top_margin="0vp"
         ohos:left_margin="50vp"
         ohos:orientation="horizontal">
         <Text
             ohos:id="$+id:love"
             ohos:height="20vp"
+            ohos:text_size="11fp"
             ohos:width="match_content"/>
 
         <Text
             ohos:id="$+id:collection"
             ohos:left_margin="20vp"
             ohos:height="20vp"
+            ohos:text_size="11fp"
             ohos:width="match_content"/>
 
         <Text
             ohos:id="$+id:play"
             ohos:left_margin="20vp"
             ohos:height="20vp"
+            ohos:text_size="11fp"
             ohos:width="match_content"/>
     </DirectionalLayout>
 

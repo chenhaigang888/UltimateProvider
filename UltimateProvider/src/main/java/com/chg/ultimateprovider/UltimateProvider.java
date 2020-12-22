@@ -5,8 +5,6 @@ import ohos.agp.components.ComponentContainer;
 import ohos.agp.components.LayoutScatter;
 import ohos.agp.components.RecycleItemProvider;
 import ohos.app.Context;
-import ohos.hiviewdfx.HiLog;
-import ohos.hiviewdfx.HiLogLabel;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -16,7 +14,7 @@ public class UltimateProvider<M extends Model> extends RecycleItemProvider {
     /*当前Provider需要的数据*/
     private List<M> models;
     private Context context;
-    /*根据自己的需求存放的自定义数据*/
+    /*根据自己的需求存放的自定义数据，方便在ItemView之间以及Activity中进行数据交换*/
     private Object customData;
     /*ItemView中的事件传递到Ability,Slice中的回掉*/
     private EventTransmissionListener eventTransmissionListener;
@@ -73,14 +71,16 @@ public class UltimateProvider<M extends Model> extends RecycleItemProvider {
         return i;
     }
 
-    static final HiLogLabel label = new HiLogLabel(HiLog.LOG_APP, 0x00201, "MY_TAG");
-
     @Override
     public void onItemMoved(int from, int to) {
         super.onItemMoved(from, to);
-        HiLog.info(label,"chg from:"+from+   "   to:"+to);
     }
 
+    /**
+     * 创建ViewHolder
+     * @param position
+     * @return
+     */
     private ViewHolder createViewHolder(int position){
         M model = models.get(position);
         ViewHolder viewHolder = null;
@@ -115,7 +115,7 @@ public class UltimateProvider<M extends Model> extends RecycleItemProvider {
         }
         viewHolder.setPosition(i);
         viewHolder.setModel(model);
-        viewHolder.onBindModel();
+        viewHolder.onDataBound();
         return viewHolder.getComponent();
     }
 }

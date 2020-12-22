@@ -1,8 +1,6 @@
 package com.chg.ultimateprovider;
 
 import ohos.agp.components.Component;
-import ohos.agp.components.ComponentContainer;
-import ohos.agp.components.ListContainer;
 import ohos.app.Context;
 
 import java.util.List;
@@ -23,7 +21,11 @@ public abstract class ViewHolder<M extends Model> {
         this.component = component;
         this.provider = provider;
     }
-    public abstract void onBindModel();
+
+    /**
+     * 当数据已经绑定到ViewMolder。应该在这里给UI控件设置数据
+     */
+    public abstract void onDataBound();
 
     public M getModel() {
         return model;
@@ -80,4 +82,13 @@ public abstract class ViewHolder<M extends Model> {
     public Component findComponentById(int id){
         return getComponent().findComponentById(id);
     }
+
+    /**
+     * 更新当前ItemView
+     */
+    public void notifyCurrentDataSetItemChanged(){
+        getProvider().notifyDataSetItemChanged(getPosition());
+    }
+
+
 }

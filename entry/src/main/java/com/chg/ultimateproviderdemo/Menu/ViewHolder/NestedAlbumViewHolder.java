@@ -24,7 +24,7 @@ public class NestedAlbumViewHolder extends ViewHolder<NestedAlbumModel> {
     }
 
     @Override
-    public void onBindModel() {
+    public void onDataBound() {
         name.setText(getModel().getName());
         songer.setText(getModel().getSonger());
     }

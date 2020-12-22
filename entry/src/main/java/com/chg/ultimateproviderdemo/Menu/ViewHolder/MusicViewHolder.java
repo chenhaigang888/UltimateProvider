@@ -23,7 +23,7 @@ public class MusicViewHolder extends ViewHolder<MusicModel> {
     }
 
     @Override
-    public void onBindModel() {
+    public void onDataBound() {
         title.setText(getModel().getTitle());
         ultimateProvider.setModels(getModel().getData());
         listContainer.setItemProvider(ultimateProvider);

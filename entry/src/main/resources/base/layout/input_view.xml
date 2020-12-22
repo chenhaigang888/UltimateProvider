@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<DirectionalLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:height="match_content"
+    ohos:width="match_parent"
+    ohos:orientation="horizontal">
+<Text
+    ohos:id="$+id:title"
+    ohos:text_size="13fp"
+    ohos:height="match_content"
+    ohos:width="match_content"
+    ohos:left_margin="10vp"
+    ohos:top_margin="10vp"
+    ohos:text="标题"/>
+    <TextField
+        ohos:id="$+id:textField"
+        ohos:top_margin="10vp"
+        ohos:text_size="13fp"
+        ohos:height="match_content"
+        ohos:width="match_parent"/>
+
+</DirectionalLayout>

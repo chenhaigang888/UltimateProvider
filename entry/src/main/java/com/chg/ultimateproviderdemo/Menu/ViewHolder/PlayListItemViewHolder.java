@@ -30,9 +30,8 @@ public class PlayListItemViewHolder extends ViewHolder<PlayListItemModel> {
             @Override
             public void onClick(Component component) {
                 //内容处理点击事件
-                getModel().setLove(!getModel().isLove());
-                getProvider().notifyDataSetItemChanged(getPosition());
-
+                getModel().setLove(!getModel().isLove());//这里把状态存储在数据中，可以根据需求将状态存储在provider中的自定义数据中。具体使用方式可以查看CustomData的使用
+                notifyCurrentDataSetItemChanged();
             }
         });
 
@@ -41,8 +40,8 @@ public class PlayListItemViewHolder extends ViewHolder<PlayListItemModel> {
             public void onClick(Component component) {
                 //将事件传递到Slice中然后同步返回结果
                 boolean play = (boolean) getEventTransmissionListener().onEventTransmission(PlayListItemViewHolder.this, getModel().isPlay(),1,null);
-                getModel().setPlay(play);
-                getProvider().notifyDataSetItemChanged(getPosition());
+                getModel().setPlay(play);//这里把状态存储在数据中，可以根据需求将状态存储在provider中的自定义数据中。具体使用方式可以查看CustomData的使用
+                notifyCurrentDataSetItemChanged();
             }
         });
 
@@ -54,8 +53,8 @@ public class PlayListItemViewHolder extends ViewHolder<PlayListItemModel> {
                     @Override
                     public Object callBack(Object object) {
                         boolean collection = (boolean) object;//这里activity中应该返回boolean类型以适合这里需要的数据
-                        getModel().setCollection(collection);
-                        getProvider().notifyDataSetItemChanged(getPosition());
+                        getModel().setCollection(collection);//这里把状态存储在数据中，可以根据需求将状态存储在provider中的自定义数据中。具体使用方式可以查看CustomData的使用
+                        notifyCurrentDataSetItemChanged();
                         return null;
                     }
                 });
@@ -64,7 +63,7 @@ public class PlayListItemViewHolder extends ViewHolder<PlayListItemModel> {
     }
 
     @Override
-    public void onBindModel() {
+    public void onDataBound() {
         name.setText(getModel().getName());
         songer.setText(getModel().getSonger());
         // 为了节约时间 以下状态使用文字代替图片。
