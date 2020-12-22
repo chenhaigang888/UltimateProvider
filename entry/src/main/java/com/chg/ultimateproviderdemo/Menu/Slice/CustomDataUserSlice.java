@@ -17,6 +17,9 @@ import ohos.agp.components.ListContainer;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 做一个登录页面来演示 在ItemView，slice之间共享数据。这个主要颜色数据共享，并不一定要这么做。具体还是要看自己的需求
+ */
 public class CustomDataUserSlice extends AbilitySlice {
 
     private ListContainer listContainer;
