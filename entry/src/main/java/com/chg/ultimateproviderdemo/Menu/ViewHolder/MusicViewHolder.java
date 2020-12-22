@@ -15,8 +15,8 @@ public class MusicViewHolder extends ViewHolder<MusicModel> {
     private ListContainer listContainer;
     private UltimateProvider ultimateProvider;
 
-    public MusicViewHolder(EventTransmissionListener eventTransmissionListener, Component component) {
-        super(eventTransmissionListener, component);
+    public MusicViewHolder(EventTransmissionListener eventTransmissionListener, Component component,UltimateProvider provider) {
+        super(eventTransmissionListener, component,provider);
         title = (Text) findComponentById(ResourceTable.Id_title);
         listContainer = (ListContainer) findComponentById(ResourceTable.Id_listContainer);
         ultimateProvider = new UltimateProvider(null,getContext());

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<DirectionalLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:height="match_content"
+    ohos:width="match_parent"
+    ohos:orientation="vertical">
+    <DirectionalLayout
+        ohos:height="match_parent"
+        ohos:width="match_parent"
+        ohos:top_margin="10vp"
+        ohos:orientation="horizontal">
+<Image
+    ohos:id="$+id:icon"
+    ohos:height="40vp"
+    ohos:width="40vp"
+    ohos:scale_mode="zoom_center"
+    ohos:image_src="$media:music"/>
+        <DirectionalLayout
+            ohos:height="match_parent"
+            ohos:width="match_parent"
+            ohos:left_margin="10vp"
+            ohos:orientation="vertical">
+            <Text
+                ohos:id="$+id:name"
+                ohos:text_size="13fp"
+                ohos:height="match_content"
+                ohos:width="match_parent"/>
+            <Text
+                ohos:id="$+id:songer"
+                ohos:height="match_content"
+                ohos:width="match_parent"/>
+        </DirectionalLayout>
+
+</DirectionalLayout>
+    <DirectionalLayout
+        ohos:height="match_content"
+        ohos:width="match_parent"
+        ohos:bottom_margin="10vp"
+        ohos:top_margin="5vp"
+        ohos:left_margin="50vp"
+        ohos:orientation="horizontal">
+        <Text
+            ohos:id="$+id:love"
+            ohos:height="20vp"
+            ohos:width="match_content"/>
+
+        <Text
+            ohos:id="$+id:collection"
+            ohos:left_margin="20vp"
+            ohos:height="20vp"
+            ohos:width="match_content"/>
+
+        <Text
+            ohos:id="$+id:play"
+            ohos:left_margin="20vp"
+            ohos:height="20vp"
+            ohos:width="match_content"/>
+    </DirectionalLayout>
+
+</DirectionalLayout>

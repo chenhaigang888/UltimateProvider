@@ -1,6 +1,7 @@
 package com.chg.ultimateproviderdemo.slice.ViewHolder;
 
 import com.chg.ultimateprovider.EventTransmissionListener;
+import com.chg.ultimateprovider.UltimateProvider;
 import com.chg.ultimateprovider.ViewHolder;
 import com.chg.ultimateproviderdemo.ResourceTable;
 import com.chg.ultimateproviderdemo.slice.model.MenuItem;
@@ -12,8 +13,8 @@ public class MenuItemViewHolder extends ViewHolder<MenuItem> {
     private Text title;
     private Text desc;
 
-    public MenuItemViewHolder(EventTransmissionListener eventTransmissionListener, Component component) {
-        super(eventTransmissionListener, component);
+    public MenuItemViewHolder(EventTransmissionListener eventTransmissionListener, Component component, UltimateProvider provider) {
+        super(eventTransmissionListener, component,provider);
         title = (Text) findComponentById(ResourceTable.Id_title);
         desc = (Text) findComponentById(ResourceTable.Id_desc);
     }

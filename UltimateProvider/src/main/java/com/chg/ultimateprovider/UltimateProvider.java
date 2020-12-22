@@ -86,8 +86,8 @@ public class UltimateProvider<M extends Model> extends RecycleItemProvider {
         ViewHolder viewHolder = null;
         Component component = LayoutScatter.getInstance(context).parse(model.getResources(position),null,false);
         try {
-            Constructor c2 = model.getHolderClass(position).getDeclaredConstructor( EventTransmissionListener.class,Component.class);
-            viewHolder = (ViewHolder) c2.newInstance(getEventTransmissionListener(),component);
+            Constructor constructor = model.getHolderClass(position).getDeclaredConstructor( EventTransmissionListener.class,Component.class,UltimateProvider.class);
+            viewHolder = (ViewHolder) constructor.newInstance(getEventTransmissionListener(),component,this);
             component.setTag(viewHolder);
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
@@ -113,6 +113,7 @@ public class UltimateProvider<M extends Model> extends RecycleItemProvider {
                 viewHolder = createViewHolder(i);
             }
         }
+        viewHolder.setPosition(i);
         viewHolder.setModel(model);
         viewHolder.onBindModel();
         return viewHolder.getComponent();

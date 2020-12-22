@@ -1,21 +1,29 @@
 package com.chg.ultimateprovider;
 
 import ohos.agp.components.Component;
+import ohos.agp.components.ComponentContainer;
 import ohos.agp.components.ListContainer;
 import ohos.app.Context;
 
 import java.util.List;
 
 public abstract class ViewHolder<M extends Model> {
+    /*ViewHolder对应的数据*/
     private M model;
+    /*传递事件到外部（Slice）*/
     private EventTransmissionListener eventTransmissionListener;
+    /*对应的布局视图*/
     private Component component;
+    /*当前对应的provider*/
+    private UltimateProvider provider;
+    private int position;
 
-
-    public ViewHolder(EventTransmissionListener eventTransmissionListener, Component component) {
+    public ViewHolder(EventTransmissionListener eventTransmissionListener, Component component,UltimateProvider provider) {
         this.eventTransmissionListener = eventTransmissionListener;
         this.component = component;
+        this.provider = provider;
     }
+    public abstract void onBindModel();
 
     public M getModel() {
         return model;
@@ -25,14 +33,28 @@ public abstract class ViewHolder<M extends Model> {
         this.model = model;
     }
 
-     public abstract void onBindModel();
-
     public EventTransmissionListener getEventTransmissionListener() {
         return eventTransmissionListener;
     }
 
     public void setEventTransmissionListener(EventTransmissionListener eventTransmissionListener) {
         this.eventTransmissionListener = eventTransmissionListener;
+    }
+
+    public UltimateProvider getProvider() {
+        return provider;
+    }
+
+    public void setProvider(UltimateProvider provider) {
+        this.provider = provider;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
     }
 
     public Component getComponent() {
@@ -47,24 +69,12 @@ public abstract class ViewHolder<M extends Model> {
         return component.getContext();
     }
 
-    public Component getParent(){
-        return (Component) getComponent().getComponentParent();
-    }
-
-    public ListContainer getListContainer(){
-        return (ListContainer) getParent();
-    }
-
-    public UltimateProvider getItemProvider(){
-        return (UltimateProvider) getListContainer().getItemProvider();
-    }
-
     public Object getCustomData(){
-        return getItemProvider().getCustomData();
+        return getProvider().getCustomData();
     }
 
     public List getList(){
-        return getItemProvider().getModels();
+        return getProvider().getModels();
     }
 
     public Component findComponentById(int id){
