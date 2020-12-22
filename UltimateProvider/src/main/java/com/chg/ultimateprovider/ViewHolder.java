@@ -90,5 +90,19 @@ public abstract class ViewHolder<M extends Model> {
         getProvider().notifyDataSetItemChanged(getPosition());
     }
 
+    /**
+     * 简单封装一下事件传输，使用的时候省去了空的判断
+     * @param target
+     * @param params
+     * @param eventId
+     * @param callBack
+     * @return分钟
+     */
+    public Object eventTransmission(Object target, Object params, int eventId, EventTransmissionListener.CallBack callBack) {
+        if (eventTransmissionListener != null) {
+            return eventTransmissionListener.onEventTransmission(target,params,eventId,callBack);
+        }
+        return null;
+    }
 
 }

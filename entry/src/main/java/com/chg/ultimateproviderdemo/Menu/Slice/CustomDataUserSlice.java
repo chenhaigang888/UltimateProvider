@@ -1,10 +1,14 @@
 package com.chg.ultimateproviderdemo.Menu.Slice;
 
+import com.chg.ultimateprovider.EventTransmissionListener;
 import com.chg.ultimateprovider.UltimateProvider;
 import com.chg.ultimateproviderdemo.Menu.CustomData.LoginData;
 import com.chg.ultimateproviderdemo.Menu.Model.InputBoxModel;
 import com.chg.ultimateproviderdemo.Menu.Model.OneTitleModel;
 import com.chg.ultimateproviderdemo.Menu.Model.SubmitBtnModel;
+import com.chg.ultimateproviderdemo.Menu.ViewHolder.InputBoxViewHolder;
+import com.chg.ultimateproviderdemo.Menu.ViewHolder.OneTitleViewHolder;
+import com.chg.ultimateproviderdemo.Menu.ViewHolder.SubmitBtnViewHolder;
 import com.chg.ultimateproviderdemo.ResourceTable;
 import ohos.aafwk.ability.AbilitySlice;
 import ohos.aafwk.content.Intent;
@@ -26,7 +30,7 @@ public class CustomDataUserSlice extends AbilitySlice {
         listContainer = (ListContainer) findComponentById(ResourceTable.Id_listContainer);
         ultimateProvider = new UltimateProvider(getData(),getContext());
         listContainer.setItemProvider(ultimateProvider);
-        ultimateProvider.setCustomData(loginData);//设置自定义数据
+        ultimateProvider.setCustomData(loginData);//演示设置自定义数据，这里主要记录输入的用户名和密码
     }
 
     public List getData() {
@@ -37,4 +41,6 @@ public class CustomDataUserSlice extends AbilitySlice {
         list.add(new SubmitBtnModel("登录"));
         return list;
     }
+
+
 }
