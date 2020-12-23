@@ -21,8 +21,6 @@ public class SongSlice extends AbilitySlice {
         super.setUIContent(ResourceTable.Layout_ability_song);
         listContainer = (ListContainer) findComponentById(ResourceTable.Id_listContainer);
         listContainer.setItemProvider(new UltimateProvider(getSongs(),getContext()));
-
-
     }
 
     List getSongs(){
@@ -30,7 +28,6 @@ public class SongSlice extends AbilitySlice {
         for (int i=0; i<100; i++) {
             list.add(new SongModel("歌曲名称："+i,"歌手："+i));
         }
-
         return list;
     }
 }
