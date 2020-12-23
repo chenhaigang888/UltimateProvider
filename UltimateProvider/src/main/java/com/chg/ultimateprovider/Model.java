@@ -5,15 +5,16 @@ package com.chg.ultimateprovider;
  */
 public interface Model {
     /**
-     * 返回模型对应的资源文件
-     * @return
+     * 当前Model配置布局文件
+     * @param position 当前Model在数组中的位置
+     * @return  返回布局文件
      */
-    public int getResources(int position);
+    int getResources(int position);
 
     /**
      * 返回模型对应的ViewHolder
-     * @param position
-     * @return
+     * @param position 当前Model在数组中的位置
+     * @return 返回当前布局文件对应的ViewHolder类
      */
-    public Class getHolderClass(int position);
+    Class getHolderClass(int position);
 }

@@ -5,6 +5,10 @@ import ohos.app.Context;
 
 import java.util.List;
 
+/**
+ * ViewHolder
+ * @param <M> 对应的模型
+ */
 public abstract class ViewHolder<M extends Model> {
     /*ViewHolder对应的数据*/
     private M model;
@@ -14,8 +18,15 @@ public abstract class ViewHolder<M extends Model> {
     private Component component;
     /*当前对应的provider*/
     private UltimateProvider provider;
+    /*当前在列表中的位置*/
     private int position;
 
+    /**
+     *构造方法
+     * @param eventTransmissionListener 事件传输对象
+     * @param component component
+     * @param provider provider
+     */
     public ViewHolder(EventTransmissionListener eventTransmissionListener, Component component,UltimateProvider provider) {
         this.eventTransmissionListener = eventTransmissionListener;
         this.component = component;
@@ -27,6 +38,10 @@ public abstract class ViewHolder<M extends Model> {
      */
     public abstract void onDataBound();
 
+    /**
+     * 返回当前模型数据
+     * @return 数据模型
+     */
     public M getModel() {
         return model;
     }
@@ -92,11 +107,11 @@ public abstract class ViewHolder<M extends Model> {
 
     /**
      * 简单封装一下事件传输，使用的时候省去了空的判断
-     * @param target
-     * @param params
-     * @param eventId
-     * @param callBack
-     * @return分钟
+     * @param target 事件发生的地方
+     * @param params 传递的参数
+     * @param eventId 用于区分多个事件的标志
+     * @param callBack 回掉对象
+     * @return 传输事件结束后返回的数据(根据需求返回)
      */
     public Object eventTransmission(Object target, Object params, int eventId, EventTransmissionListener.CallBack callBack) {
         if (eventTransmissionListener != null) {
