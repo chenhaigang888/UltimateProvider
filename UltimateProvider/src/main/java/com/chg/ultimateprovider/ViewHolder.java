@@ -9,7 +9,7 @@ import java.util.List;
  * ViewHolder
  * @param <M> 对应的模型
  */
-public abstract class ViewHolder<M extends Model> {
+public abstract class ViewHolder<M extends Model> implements Notify{
     /*ViewHolder对应的数据*/
     private M model;
     /*传递事件到外部（Slice）*/
@@ -102,7 +102,7 @@ public abstract class ViewHolder<M extends Model> {
      * 更新当前ItemView
      */
     public void notifyCurrentDataSetItemChanged(){
-        getProvider().notifyDataSetItemChanged(getPosition());
+        notifyDataSetItemChanged(getPosition());
     }
 
     /**
@@ -120,4 +120,43 @@ public abstract class ViewHolder<M extends Model> {
         return null;
     }
 
+    @Override
+    public void notifyDataChanged() {
+        getProvider().notifyDataChanged();
+    }
+
+    @Override
+    public void notifyDataInvalidated(){
+        getProvider().notifyDataInvalidated();
+    }
+
+    @Override
+    public void notifyDataSetItemChanged(int position){
+        getProvider().notifyDataSetItemChanged(position);
+    }
+
+    @Override
+    public void notifyDataSetItemInserted(int position){
+        getProvider().notifyDataSetItemInserted(position);
+    }
+
+    @Override
+    public void notifyDataSetItemRemoved(int position){
+        getProvider().notifyDataSetItemRemoved(position);
+    }
+
+    @Override
+    public void notifyDataSetItemRangeChanged(int startPos, int countItems){
+        getProvider().notifyDataSetItemRangeChanged(startPos,countItems);
+    }
+
+    @Override
+    public void notifyDataSetItemRangeInserted(int startPos, int countItems){
+        getProvider().notifyDataSetItemRangeInserted(startPos,countItems);
+    }
+
+    @Override
+    public void notifyDataSetItemRangeRemoved(int startPos, int countItems){
+        getProvider().notifyDataSetItemRangeRemoved(startPos,countItems);
+    }
 }
