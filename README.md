@@ -85,6 +85,9 @@ public class SongViewHolder extends ViewHolder<SongModel> {
     }
 }
 ```
+效果：
+https://github.com/AFNetworking/AFNetworking/edit/master/e1.png
+
 
 #### 2.简单的显示（显示多种布局）
 
@@ -159,7 +162,8 @@ public class AlbumViewHolder extends ViewHolder<AlbumModel> {
     }
 }
 ```
-
+效果2：
+https://github.com/AFNetworking/AFNetworking/edit/master/e2.png
 
 #### 3.嵌套ListContainer
 
@@ -268,7 +272,8 @@ public class MusicViewHolder extends ViewHolder<MusicModel> {
     }
 }
 ```
-
+效果2：
+https://github.com/AFNetworking/AFNetworking/edit/master/v3.png
 
 
 #### 4.ItemView中的按钮点击、等事件
@@ -421,7 +426,8 @@ public class PlayListItemViewHolder extends ViewHolder<PlayListItemModel> {
     }
 }
 ```
-
+效果2：
+https://github.com/AFNetworking/AFNetworking/edit/master/v4.mp4
 
 
 #### 5.ItemView中的按钮点击、等事件
@@ -466,3 +472,5 @@ public class CustomDataUserSlice extends AbilitySlice implements EventTransmissi
     }
 }
 ```
+效果2：
+https://github.com/AFNetworking/AFNetworking/edit/master/v5.mp4
