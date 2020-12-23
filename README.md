@@ -87,7 +87,7 @@ public class SongViewHolder extends ViewHolder<SongModel> {
 ```
 效果1：
 <p align="center" >
-  <img src="https://github.com/AFNetworking/AFNetworking/edit/master/e1.png" alt="UltimateProvider" title="UltimateProvider">
+  <img src="https://github.com/chenhaigang888/UltimateProvider/blob/master/e1.png" alt="UltimateProvider" title="UltimateProvider">
 </p>
 
 
@@ -167,7 +167,7 @@ public class AlbumViewHolder extends ViewHolder<AlbumModel> {
 ```
 效果2：
 <p align="center" >
-  <img src="https://github.com/AFNetworking/AFNetworking/edit/master/e2.png" alt="UltimateProvider" title="UltimateProvider">
+  <img src="https://github.com/chenhaigang888/UltimateProvider/blob/master/e2.png" alt="UltimateProvider" title="UltimateProvider">
 </p>
 
 #### 3.嵌套ListContainer
@@ -278,7 +278,7 @@ public class MusicViewHolder extends ViewHolder<MusicModel> {
 }
 ```
 效果3：
-<video src="https://github.com/AFNetworking/AFNetworking/edit/master/v3.mp4" controls="controls">
+<video src="https://github.com/chenhaigang888/UltimateProvider/blob/master/v3.mp4" controls="controls">
 您的浏览器不支持 video 标签。
 </video>
 
@@ -433,9 +433,10 @@ public class PlayListItemViewHolder extends ViewHolder<PlayListItemModel> {
 }
 ```
 效果4：
-<video src="https://github.com/AFNetworking/AFNetworking/edit/master/v4.mp4" controls="controls">
+<video src="https://github.com/chenhaigang888/UltimateProvider/blob/master/v4.mp4" controls="controls">
 您的浏览器不支持 video 标签。
 </video>
+
 
 #### 5.ItemView中的按钮点击、等事件
 
@@ -480,6 +481,6 @@ public class CustomDataUserSlice extends AbilitySlice implements EventTransmissi
 }
 ```
 效果5：
-<video src="https://github.com/AFNetworking/AFNetworking/edit/master/v5.mp4" controls="controls">
+<video src="https://github.com/chenhaigang888/UltimateProvider/blob/master/v5.mp4" controls="controls">
 您的浏览器不支持 video 标签。
 </video>
