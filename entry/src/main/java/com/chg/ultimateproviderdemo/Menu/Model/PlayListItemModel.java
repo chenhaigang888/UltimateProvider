@@ -62,7 +62,7 @@ public class PlayListItemModel implements Model {
     }
 
     @Override
-    public int getResources(int position) {
+    public int getResource(int position) {
         return ResourceTable.Layout_play_list_item;
     }
 

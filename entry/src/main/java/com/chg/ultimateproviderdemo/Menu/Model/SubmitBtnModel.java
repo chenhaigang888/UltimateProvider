@@ -21,7 +21,7 @@ public class SubmitBtnModel implements Model {
     }
 
     @Override
-    public int getResources(int position) {
+    public int getResource(int position) {
         return ResourceTable.Layout_submit_btn_view;
     }
 

@@ -14,7 +14,7 @@ public class NestedAlbumModel extends AlbumModel {
     }
 
     @Override
-    public int getResources(int position) {
+    public int getResource(int position) {
         return ResourceTable.Layout_album_item_nested;
     }
 

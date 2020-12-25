@@ -9,7 +9,7 @@ public interface Model {
      * @param position 当前Model在数组中的位置
      * @return  返回布局文件
      */
-    int getResources(int position);
+    int getResource(int position);
 
     /**
      * 返回模型对应的ViewHolder

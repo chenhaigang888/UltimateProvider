@@ -31,7 +31,7 @@ public class SongModel implements Model {
     }
 
     @Override
-    public int getResources(int position) {
+    public int getResource(int position) {
         return ResourceTable.Layout_song_item;
     }
 

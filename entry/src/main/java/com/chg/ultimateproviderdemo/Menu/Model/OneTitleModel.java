@@ -20,7 +20,7 @@ public class OneTitleModel implements Model {
     }
 
     @Override
-    public int getResources(int position) {
+    public int getResource(int position) {
         return ResourceTable.Layout_one_title_view;
     }
 

@@ -22,7 +22,7 @@ public class FuncChangeModel implements Model {
     }
 
     @Override
-    public int getResources(int position) {
+    public int getResource(int position) {
         return ResourceTable.Layout_func_change_item;
     }
 
