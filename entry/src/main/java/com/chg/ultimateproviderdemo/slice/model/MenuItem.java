@@ -47,7 +47,7 @@ public class MenuItem implements Model {
     }
 
     @Override
-    public int getResources(int position) {
+    public int getResource(int position) {
         return ResourceTable.Layout_menu_item;
     }
 

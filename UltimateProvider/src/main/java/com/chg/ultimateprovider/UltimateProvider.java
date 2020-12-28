@@ -125,7 +125,7 @@ public class UltimateProvider<M extends Model> extends RecycleItemProvider {
     private ViewHolder createViewHolder(int position){
         M model = models.get(position);
         ViewHolder viewHolder = null;
-        Component component = LayoutScatter.getInstance(context).parse(model.getResources(position),null,false);
+        Component component = LayoutScatter.getInstance(context).parse(model.getResource(position),null,false);
         try {
             Constructor constructor = model.getHolderClass(position).getDeclaredConstructor( EventTransmissionListener.class, Component.class, UltimateProvider.class);
             viewHolder = (ViewHolder) constructor.newInstance(getEventTransmissionListener(), component, this);
