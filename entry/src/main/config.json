@@ -88,8 +88,16 @@
         "label": "UltimateProviderDemo",
         "type": "page",
         "launchType": "standard"
+      },
+      {
+        "orientation": "unspecified",
+        "name": "com.chg.ultimateproviderdemo.Menu.Ability.WeiboAbility",
+        "icon": "$media:icon",
+        "description": "$string:mainability_description",
+        "label": "UltimateProviderDemo",
+        "type": "page",
+        "launchType": "standard"
       }
-
     ]
   }
 }

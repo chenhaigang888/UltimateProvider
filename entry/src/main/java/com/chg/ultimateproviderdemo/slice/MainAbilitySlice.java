@@ -50,6 +50,7 @@ public class MainAbilitySlice extends AbilitySlice {
         list.add(new MenuItem("嵌套ListContainer","最基础使用","com.chg.ultimateproviderdemo.Menu.Ability.NestedListAbility"));
         list.add(new MenuItem("ItemView中的按钮点击、等事件","最基础使用","com.chg.ultimateproviderdemo.Menu.Ability.EventHanlderAbility"));
         list.add(new MenuItem("provider设置自定义数据","provider设置自定义数据，方便在ItemView之间以及Activity中共享数据","com.chg.ultimateproviderdemo.Menu.Ability.CustomDataUserAbility"));
+        list.add(new MenuItem("比较复杂的演示（微博）","使用当前框架模拟微博","com.chg.ultimateproviderdemo.Menu.Ability.WeiboAbility"));
         return list;
     }
 
