@@ -32,8 +32,8 @@ public class WeiboSlice extends AbilitySlice {
     private List recycleViewData = new ArrayList();
 
     private int pageIndex = 0;
-    private Boolean isPullRefresh;
-    private Boolean isLoading;//是否正在加载
+    private Boolean isPullRefresh = false;
+    private Boolean isLoading = false;//是否正在加载
 
     @Override
     protected void onStart(Intent intent) {
@@ -43,6 +43,7 @@ public class WeiboSlice extends AbilitySlice {
         recycleViewData.add(getFunctionArea());
         getProvider().setModels(recycleViewData);
         listContainer.setItemProvider(provider);
+        postAsynHttp();
     }
 
     public UltimateProvider getProvider() {
@@ -78,13 +79,14 @@ public class WeiboSlice extends AbilitySlice {
         call.enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-
+                System.out.println("");
             }
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 String str = response.body().string();
 //                Log.i("chg", "str:" + str);
+                System.out.println("chgLog:"+str);
                 ServerResponse serverResponse = gson.fromJson(str, ServerResponse.class);
                 final List<Found> list = serverResponse.getData();
                 for (Found found : list) {
@@ -109,18 +111,16 @@ public class WeiboSlice extends AbilitySlice {
                     }
                 }
 
-//                runOnUiThread(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        isLoading = false;
-//                        swipeRefreshLayout.setRefreshing(false);
-//                        recyclerView.setModels(recycleViewData);
-//                    }
-//                });
+                getUITaskDispatcher().asyncDispatch(new Runnable() {
+                    @Override
+                    public void run() {
+                        isLoading = false;
+                        provider.setModels(recycleViewData);
+                        provider.notifyDataChanged();
+                    }
+                });
             }
         });
-
-
     }
 
     public ArrayList<FoundSendData> parserJsonArray(String strJson) {

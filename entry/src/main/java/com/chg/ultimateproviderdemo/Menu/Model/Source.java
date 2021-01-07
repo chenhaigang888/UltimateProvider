@@ -3,6 +3,8 @@ package com.chg.ultimateproviderdemo.Menu.Model;
 
 
 import com.chg.ultimateprovider.Model;
+import com.chg.ultimateproviderdemo.Menu.ViewHolder.SourceViewHolder;
+import com.chg.ultimateproviderdemo.ResourceTable;
 
 import java.io.Serializable;
 
@@ -83,7 +85,7 @@ public class Source implements Model, Serializable {
 
     @Override
     public int getResource(int position) {
-        return R.layout.source_item;
+        return ResourceTable.Layout_source_item;
     }
 
     @Override

@@ -99,7 +99,7 @@ public class UltimateProvider<M extends Model> extends RecycleItemProvider {
 
     @Override
     public int getCount() {
-        return models.size();
+        return models == null ? 0 : models.size();
     }
 
     @Override

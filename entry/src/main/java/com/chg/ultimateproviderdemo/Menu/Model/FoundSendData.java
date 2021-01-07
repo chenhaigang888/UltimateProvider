@@ -2,6 +2,8 @@ package com.chg.ultimateproviderdemo.Menu.Model;
 
 
 import com.chg.ultimateprovider.Model;
+import com.chg.ultimateproviderdemo.Menu.ViewHolder.FoundSendDataViewHolder;
+import com.chg.ultimateproviderdemo.ResourceTable;
 
 import java.util.List;
 
@@ -109,7 +111,7 @@ public class FoundSendData implements Model {
 
     @Override
     public int getResource(int position) {
-        return R.layout.found_send_data_item;
+        return ResourceTable.Layout_found_send_data_item;
     }
 
     @Override

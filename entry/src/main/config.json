@@ -12,8 +12,21 @@
       "releaseType": "Beta1"
     }
   },
-  "deviceConfig": {},
+  "deviceConfig": {
+    "default": {
+      "directLaunch": false,
+      "supportBackup": false,
+      "network": {
+        "usesCleartext": true
+      }
+    }
+  }
+,
   "module": {
+    "reqPermissions": [{"name": "ohos.permission.INTERNET","reason": "需要访问网络来从服务器获取数据及图片等内容"},
+      {"name": "ohos.permission.READ_MEDIA"},
+      {"name": "ohos.permission.WRITE_MEDIA"}
+    ],
     "package": "com.chg.ultimateproviderdemo",
     "name": ".MyApplication",
     "deviceType": [
