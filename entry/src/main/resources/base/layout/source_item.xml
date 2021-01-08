@@ -10,6 +10,7 @@
     ohos:id="$+id:image"
     ohos:height="match_parent"
     ohos:width="match_parent"
-    ohos:image_src="$media:music"/>
+    ohos:scale_mode="clip_center"
+    ohos:image_src="$media:default_pic"/>
     >
 </DirectionalLayout>

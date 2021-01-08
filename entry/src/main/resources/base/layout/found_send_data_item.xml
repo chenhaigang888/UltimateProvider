@@ -95,22 +95,23 @@
                 ohos:id="$+id:image1"
                 ohos:height="24vp"
                 ohos:width="24vp"
-                ohos:image_src="$media:default_pic"/>
+                />
             <Image
                 ohos:id="$+id:image2"
                 ohos:height="24vp"
                 ohos:width="24vp"
                 ohos:left_margin="-10vp"
-                ohos:image_src="$media:default_pic"/>
+                />
             <Image
                 ohos:id="$+id:image3"
                 ohos:height="24vp"
                 ohos:width="24vp"
                 ohos:left_margin="-10vp"
-                ohos:image_src="$media:default_pic"/>
+                />
         </DirectionalLayout>
     </DependentLayout>
     <Text
+        ohos:id="$+id:viewInfo"
         ohos:height="match_content"
         ohos:width="match_content"
         ohos:text="13叮   1评论   0转发"

@@ -10,6 +10,7 @@ import com.chg.ultimateproviderdemo.ResourceTable;
 import ohos.agp.components.Component;
 import ohos.agp.components.ComponentContainer;
 import ohos.agp.components.ListContainer;
+import ohos.global.configuration.DeviceCapability;
 
 public class HorizontalScrollViewHolder extends ViewHolder<Model> {
     private ListContainer listContainer;
@@ -35,5 +36,8 @@ public class HorizontalScrollViewHolder extends ViewHolder<Model> {
             listContainer.setItemProvider(new UltimateProvider(friendModel.getFriends(),getContext()));
         }
     }
+
+
+
 
 }

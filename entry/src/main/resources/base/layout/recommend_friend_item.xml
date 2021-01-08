@@ -12,11 +12,12 @@
     ohos:layout_alignment="center"
     >
 <Image
+    ohos:id="$+id:image"
     ohos:height="70vp"
     ohos:width="70vp"
     ohos:top_margin="20vp"
     ohos:layout_alignment="center"
-    ohos:background_element="#F0F0F0"/>
+    />
     <Text
         ohos:id="$+id:name"
         ohos:height="match_content"

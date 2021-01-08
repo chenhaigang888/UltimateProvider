@@ -7,6 +7,7 @@ import com.chg.ultimateproviderdemo.ResourceTable;
 import com.google.gson.*;
 import ohos.aafwk.ability.AbilitySlice;
 import ohos.aafwk.content.Intent;
+import ohos.agp.components.Component;
 import ohos.agp.components.ListContainer;
 
 
@@ -113,14 +114,19 @@ public class WeiboSlice extends AbilitySlice {
                     }
                 }
 
-                getUITaskDispatcher().asyncDispatch(new Runnable() {
-                    @Override
-                    public void run() {
-                        isLoading = false;
-                        provider.setModels(recycleViewData);
-                        provider.notifyDataChanged();
-                    }
-                });
+                //没有做上啦加载，这里一次请求3次
+                if (pageIndex < 3) {
+                    postAsynHttp();
+                } else {
+                    getUITaskDispatcher().asyncDispatch(new Runnable() {
+                        @Override
+                        public void run() {
+                            isLoading = false;
+                            provider.setModels(recycleViewData);
+                            provider.notifyDataChanged();
+                        }
+                    });
+                }
             }
         });
     }

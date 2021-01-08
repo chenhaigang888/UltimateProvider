@@ -10,6 +10,11 @@ import com.chg.ultimateproviderdemo.Menu.Model.Source;
 import com.chg.ultimateproviderdemo.ResourceTable;
 import ohos.agp.components.*;
 import ohos.global.configuration.DeviceCapability;
+import ohos.media.image.ImageSource;
+import okhttp3.*;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +28,7 @@ public class FoundSendDataViewHolder extends ViewHolder<FoundSendData> {
     private Text nickname;
     private Text remark;
     private Text browses;
+    private Text viewInfo;
 
     private Image image1;
     private Image image2;
@@ -42,10 +48,18 @@ public class FoundSendDataViewHolder extends ViewHolder<FoundSendData> {
         super(eventTransmissionListener, component, provider, componentContainer);
         headImageView = (Image) findComponentById(ResourceTable.Id_headImageView);
 
+        headImageView.setClickedListener(new Component.ClickedListener() {
+            @Override
+            public void onClick(Component component) {
+                System.out.println("当前图片数量："+getModel().getContent().getSource().size());
+            }
+        });
+
         nickname = (Text) findComponentById(ResourceTable.Id_nickname);
         content = (Text) findComponentById(ResourceTable.Id_content);
         browses = (Text) findComponentById(ResourceTable.Id_browses);
         remark = (Text) findComponentById(ResourceTable.Id_remark);
+        viewInfo = (Text) findComponentById(ResourceTable.Id_viewInfo);
 
         listContainer1 = (ListContainer) findComponentById(ResourceTable.Id_listContainer1);
         listContainer2 = (ListContainer) findComponentById(ResourceTable.Id_listContainer2);
@@ -56,31 +70,55 @@ public class FoundSendDataViewHolder extends ViewHolder<FoundSendData> {
         image3 = (Image) findComponentById(ResourceTable.Id_image3);
     }
 
-    @Override
-    public void onDataBound() {
+    String getUrl(String url, int width) {
+        int p = getContext().getResourceManager().getDeviceCapability().screenDensity / DeviceCapability.SCREEN_MDPI;
+        return url + "?x-oss-process=image/resize,w_" + width*p + "/quality,q_50/circle,r_"+p*width;
+    }
+
+    //显示给当前内容点赞的用户头像
+    void showLikesUser(){
+        List<FoundUser> likes = getModel().getLikes();
+        for (int i = 0; i < likes.size(); i++) {
+            FoundUser foundUser = likes.get(i);
+            if (i == 0) {
+                downloadPic(getUrl(foundUser.getAvatar(),24),image1);
+            } else if(i == 1){
+                downloadPic(getUrl(foundUser.getAvatar(),24),image2);
+            } else if(i == 2) {
+                downloadPic(getUrl(foundUser.getAvatar(),24),image3);
+                break;
+            }
+        }
+    }
+
+    //显示用户信息
+    void showUserHeadImage(){
         FoundUser foundUser = getModel().getUser();
-        FoundContent foundContent = getModel().getContent();
         if (foundUser != null) {
             nickname.setText(foundUser.getFinalShowName());
             remark.setText(foundUser.getExts());
+            downloadPic(getUrl(foundUser.getAvatar(),30),headImageView);
         }
+    }
+
+    void showContent(){
+        clearAllData();//清除由于复用可能存在的缓存数据
+        FoundContent foundContent = getModel().getContent();
         DirectionalLayout.LayoutConfig config1 = (DirectionalLayout.LayoutConfig) listContainer1.getLayoutConfig();
         DirectionalLayout.LayoutConfig config2 = (DirectionalLayout.LayoutConfig) listContainer2.getLayoutConfig();
         DirectionalLayout.LayoutConfig config3 = (DirectionalLayout.LayoutConfig) listContainer3.getLayoutConfig();
         config1.height = 0;
         config2.height = 0;
         config3.height = 0;
-        clearAllData();
-        if (foundContent != null) {
-            content.setText(getModel().getContent().getContent());
-            browses.setText(getModel().getContent().getBrowses()+"人看过");
 
+        if (foundContent != null) {
+            content.setText(foundContent.getContent());
+            browses.setText(foundContent.getBrowses()+"人看过");
             List sources = foundContent.getSource();
             if (sources != null) {
                 provider1.setCustomData(sources);
                 provider2.setCustomData(sources);
                 provider3.setCustomData(sources);
-
                 int size = sources.size();
                 int needSize = size >9?9:size;
                 List list1 = new ArrayList();
@@ -103,6 +141,10 @@ public class FoundSendDataViewHolder extends ViewHolder<FoundSendData> {
                 int p = getContext().getResourceManager().getDeviceCapability().screenDensity / DeviceCapability.SCREEN_MDPI;
                 int w = getContext().getResourceManager().getDeviceCapability().width * p;
                 int h = getContext().getResourceManager().getDeviceCapability().height * p;
+
+                //计算布局，1个图片就按照图片宽高比来显示，如果图片的高度超过屏幕的0.9倍则最高只显示0.9倍。
+                //如果是2、4张图图片则显示2宫格和4宫格图片。
+                //如果是其他的则按照9宫格显示
                 if(size == 1){
                     Source source = (Source) sources.get(0);
                     int pic_w = source.getWidth();
@@ -133,13 +175,18 @@ public class FoundSendDataViewHolder extends ViewHolder<FoundSendData> {
         }
 
         listContainer1.setItemProvider(provider1);
-        provider1.notifyDataChanged();
-
         listContainer2.setItemProvider(provider2);
-        provider2.notifyDataChanged();
-
         listContainer3.setItemProvider(provider3);
+        provider1.notifyDataChanged();
+        provider2.notifyDataChanged();
         provider3.notifyDataChanged();
+    }
+
+    @Override
+    public void onDataBound() {
+        showUserHeadImage();
+        showLikesUser();
+        showContent();
     }
 
     /**
@@ -149,9 +196,45 @@ public class FoundSendDataViewHolder extends ViewHolder<FoundSendData> {
         provider1.setModels(null);
         provider2.setModels(null);
         provider3.setModels(null);
-
         provider1.setCustomData(null);
         provider2.setCustomData(null);
         provider3.setCustomData(null);
+    }
+
+    /**
+     * 下载图片
+     * @param url
+     * @param image
+     */
+    public void downloadPic(String url,Image image){
+        image.setTag(url);
+        OkHttpClient okHttpClient=new OkHttpClient();
+        Request request=new Request.Builder()
+                .get()
+                .url(url)
+                .build();
+        Call call=okHttpClient.newCall(request);
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                //将响应数据转化为输入流数据
+                InputStream inputStream=response.body().byteStream();
+                ImageSource imageSource = ImageSource.create(inputStream,null);
+                inputStream.close();
+                getContext().getUITaskDispatcher().asyncDispatch(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (url.equals(image.getTag())) {
+                            image.setPixelMap(imageSource.createPixelmap(null));
+                        }
+                    }
+                });
+            }
+        });
     }
 }
