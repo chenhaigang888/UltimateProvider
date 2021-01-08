@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DirectionalLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:height="match_parent"
+    ohos:width="140vp"
+    ohos:orientation="vertical">
+<DirectionalLayout
+    ohos:height="match_content"
+    ohos:width="match_parent"
+    ohos:orientation="vertical"
+    ohos:background_element="#ffFAFAFA"
+    ohos:layout_alignment="center"
+    >
+<Image
+    ohos:height="70vp"
+    ohos:width="70vp"
+    ohos:top_margin="20vp"
+    ohos:layout_alignment="center"
+    ohos:background_element="#F0F0F0"/>
+    <Text
+        ohos:id="$+id:name"
+        ohos:height="match_content"
+        ohos:width="match_content"
+        ohos:top_margin="10.67vp"
+        ohos:text_size="12fp"
+        ohos:layout_alignment="center"
+        ohos:text="ddd"/>
+
+    <Text
+        ohos:height="match_content"
+        ohos:width="match_content"
+        ohos:top_margin="6vp"
+        ohos:text_size="10fp"
+        ohos:text_color="#ff777777"
+        ohos:layout_alignment="center"
+        ohos:text="来自共同关注"/>
+
+    <Button
+        ohos:height="33vp"
+        ohos:width="match_parent"
+        ohos:top_margin="10.67vp"
+        ohos:text_size="12fp"
+        ohos:text_color="#FFFFFF"
+        ohos:left_margin="10vp"
+        ohos:right_margin="10vp"
+        ohos:background_element="#464646"
+        ohos:text="关注"/>
+
+</DirectionalLayout>
+</DirectionalLayout>

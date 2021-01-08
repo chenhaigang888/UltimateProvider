@@ -7,6 +7,7 @@ import com.chg.ultimateproviderdemo.Menu.CustomData.LoginData;
 import com.chg.ultimateproviderdemo.Menu.Model.InputBoxModel;
 import com.chg.ultimateproviderdemo.ResourceTable;
 import ohos.agp.components.Component;
+import ohos.agp.components.ComponentContainer;
 import ohos.agp.components.Text;
 import ohos.agp.components.TextField;
 import ohos.agp.components.element.Element;
@@ -17,8 +18,8 @@ public class InputBoxViewHolder extends ViewHolder<InputBoxModel> {
     private Text title;
     private TextField textField;
 
-    public InputBoxViewHolder(EventTransmissionListener eventTransmissionListener, Component component, UltimateProvider provider) {
-        super(eventTransmissionListener, component, provider);
+    public InputBoxViewHolder(EventTransmissionListener eventTransmissionListener, Component component, UltimateProvider provider, ComponentContainer componentContainer) {
+        super(eventTransmissionListener, component, provider, componentContainer);
         title = (Text) findComponentById(ResourceTable.Id_title);
         textField = (TextField) findComponentById(ResourceTable.Id_textField);
 

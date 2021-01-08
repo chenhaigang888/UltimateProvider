@@ -1,6 +1,8 @@
 package com.chg.ultimateprovider;
 
 import ohos.agp.components.Component;
+import ohos.agp.components.ComponentContainer;
+import ohos.agp.components.ListContainer;
 import ohos.app.Context;
 
 import java.util.List;
@@ -20,6 +22,8 @@ public abstract class ViewHolder<M extends Model> implements Notify{
     private UltimateProvider provider;
     /*当前在列表中的位置*/
     private int position;
+    /*当前所在的ListContainer*/
+    private ComponentContainer componentContainer;
 
     /**
      *构造方法
@@ -27,7 +31,8 @@ public abstract class ViewHolder<M extends Model> implements Notify{
      * @param component component
      * @param provider provider
      */
-    public ViewHolder(EventTransmissionListener eventTransmissionListener, Component component,UltimateProvider provider) {
+    public ViewHolder(EventTransmissionListener eventTransmissionListener, Component component,UltimateProvider provider,ComponentContainer componentContainer) {
+        this.componentContainer = componentContainer;
         this.eventTransmissionListener = eventTransmissionListener;
         this.component = component;
         this.provider = provider;
@@ -96,6 +101,14 @@ public abstract class ViewHolder<M extends Model> implements Notify{
 
     public Component findComponentById(int id){
         return getComponent().findComponentById(id);
+    }
+
+    public ComponentContainer getComponentContainer() {
+        return componentContainer;
+    }
+
+    public void setComponentContainer(ComponentContainer componentContainer) {
+        this.componentContainer = componentContainer;
     }
 
     /**

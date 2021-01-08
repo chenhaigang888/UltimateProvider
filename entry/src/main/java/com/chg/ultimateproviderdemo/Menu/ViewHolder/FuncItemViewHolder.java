@@ -7,6 +7,7 @@ import com.chg.ultimateproviderdemo.Menu.Model.FuncItem;
 import com.chg.ultimateproviderdemo.Menu.Model.FunctionArea;
 import com.chg.ultimateproviderdemo.ResourceTable;
 import ohos.agp.components.Component;
+import ohos.agp.components.ComponentContainer;
 import ohos.agp.components.Image;
 import ohos.agp.components.Text;
 
@@ -26,8 +27,8 @@ public class FuncItemViewHolder extends ViewHolder<FuncItem> {
      * @param component                 component
      * @param provider                  provider
      */
-    public FuncItemViewHolder(EventTransmissionListener eventTransmissionListener, Component component, UltimateProvider provider) {
-        super(eventTransmissionListener, component, provider);
+    public FuncItemViewHolder(EventTransmissionListener eventTransmissionListener, Component component, UltimateProvider provider, ComponentContainer componentContainer) {
+        super(eventTransmissionListener, component, provider, componentContainer);
         funcName = (Text) findComponentById(ResourceTable.Id_funcName);
         funcIcon = (Image) findComponentById(ResourceTable.Id_funcIcon);
     }

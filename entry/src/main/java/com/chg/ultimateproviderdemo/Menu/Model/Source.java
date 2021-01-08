@@ -13,8 +13,8 @@ public class Source implements Model, Serializable {
     private String url;
     //处理过的url
     private String handleUrl;
-    private float height;
-    private float width;
+    private int height;
+    private int width;
     private String path;
     private Float duration;
     private Boolean isLongImage;
@@ -43,19 +43,19 @@ public class Source implements Model, Serializable {
         this.url = url;
     }
 
-    public float getHeight() {
+    public int getHeight() {
         return height;
     }
 
-    public void setHeight(float height) {
+    public void setHeight(int height) {
         this.height = height;
     }
 
-    public float getWidth() {
+    public int getWidth() {
         return width;
     }
 
-    public void setWidth(float width) {
+    public void setWidth(int width) {
         this.width = width;
     }
 

@@ -14,6 +14,7 @@
         ohos:id="$+id:headImageView"
         ohos:height="30vp"
         ohos:width="30vp"
+        ohos:left_margin="10vp"
         ohos:image_src="$media:default_pic"/>
     <DirectionalLayout
         ohos:height="match_content"
@@ -39,12 +40,25 @@
     </DirectionalLayout>
 </DirectionalLayout>
     <ListContainer
-        ohos:id="$+id:listContainer"
+        ohos:id="$+id:listContainer1"
         ohos:height="match_content"
         ohos:width="match_parent"
         ohos:orientation="horizontal"
         ohos:top_margin="8vp"
-        ohos:bottom_margin="2vp"/>
+        />
+    <ListContainer
+        ohos:id="$+id:listContainer2"
+        ohos:height="match_content"
+        ohos:width="match_parent"
+        ohos:orientation="horizontal"
+        />
+    <ListContainer
+        ohos:id="$+id:listContainer3"
+        ohos:height="match_content"
+        ohos:width="match_parent"
+        ohos:orientation="horizontal"
+        ohos:bottom_margin="2vp"
+        />
     <DependentLayout
         ohos:height="match_content"
         ohos:width="match_parent"

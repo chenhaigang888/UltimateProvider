@@ -5,8 +5,10 @@ import com.chg.ultimateprovider.Model;
 import com.chg.ultimateprovider.UltimateProvider;
 import com.chg.ultimateprovider.ViewHolder;
 import com.chg.ultimateproviderdemo.Menu.Model.FunctionArea;
+import com.chg.ultimateproviderdemo.Menu.Model.RecommendedFriendModel;
 import com.chg.ultimateproviderdemo.ResourceTable;
 import ohos.agp.components.Component;
+import ohos.agp.components.ComponentContainer;
 import ohos.agp.components.ListContainer;
 
 public class HorizontalScrollViewHolder extends ViewHolder<Model> {
@@ -18,8 +20,8 @@ public class HorizontalScrollViewHolder extends ViewHolder<Model> {
      * @param component                 component
      * @param provider                  provider
      */
-    public HorizontalScrollViewHolder(EventTransmissionListener eventTransmissionListener, Component component, UltimateProvider provider) {
-        super(eventTransmissionListener, component, provider);
+    public HorizontalScrollViewHolder(EventTransmissionListener eventTransmissionListener, Component component, UltimateProvider provider, ComponentContainer componentContainer) {
+        super(eventTransmissionListener, component, provider, componentContainer);
         listContainer = (ListContainer) findComponentById(ResourceTable.Id_list);
     }
 
@@ -28,6 +30,9 @@ public class HorizontalScrollViewHolder extends ViewHolder<Model> {
         if (getModel() instanceof FunctionArea) {
             FunctionArea functionArea = (FunctionArea) getModel();
             listContainer.setItemProvider(new UltimateProvider(functionArea.getFuncItems(),getContext()));
+        } else if(getModel() instanceof RecommendedFriendModel){
+            RecommendedFriendModel friendModel = (RecommendedFriendModel) getModel();
+            listContainer.setItemProvider(new UltimateProvider(friendModel.getFriends(),getContext()));
         }
     }
 

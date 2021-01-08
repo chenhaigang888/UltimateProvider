@@ -7,11 +7,15 @@ import com.chg.ultimateprovider.ViewHolder;
 import com.chg.ultimateproviderdemo.Menu.Model.FoundSendData;
 import com.chg.ultimateproviderdemo.Menu.Model.Source;
 import com.chg.ultimateproviderdemo.ResourceTable;
-import com.github.boxuanjia.toycar.ToyCar;
+
 import ohos.agp.components.Component;
+import ohos.agp.components.ComponentContainer;
 import ohos.agp.components.DirectionalLayout;
 import ohos.agp.components.Image;
 import ohos.agp.text.Layout;
+import ohos.global.configuration.DeviceCapability;
+
+import java.util.List;
 
 public class SourceViewHolder extends ViewHolder<Source> {
 
@@ -23,14 +27,37 @@ public class SourceViewHolder extends ViewHolder<Source> {
      * @param component                 component
      * @param provider                  provider
      */
-    public SourceViewHolder(EventTransmissionListener eventTransmissionListener, Component component, UltimateProvider provider) {
-        super(eventTransmissionListener, component, provider);
+    public SourceViewHolder(EventTransmissionListener eventTransmissionListener, Component component, UltimateProvider provider, ComponentContainer componentContainer) {
+        super(eventTransmissionListener, component, provider, componentContainer);
         image = (Image) findComponentById(ResourceTable.Id_image);
 
     }
 
     @Override
     public void onDataBound() {
+        int p = getContext().getResourceManager().getDeviceCapability().screenDensity / DeviceCapability.SCREEN_MDPI;
+        int w = getContext().getResourceManager().getDeviceCapability().width * p;
+        int h = getContext().getResourceManager().getDeviceCapability().height * p;
+
+        List list = getProvider().getModels();
+        int width = w;
+        int height = h;
+        if (list.size() == 1) {
+            width = w;
+            int js_h = (int) (new Float(getModel().getHeight()) / new Float(getModel().getWidth()) * w);
+            height = js_h > h * 0.9 ? (int) (h * 0.9) :js_h;
+        } else if(list.size() == 2 || list.size() == 4){
+            width = w/2;
+            height = width;
+        } else {
+            width = w/3;
+            height = width;
+        }
+
+        DirectionalLayout.LayoutConfig config = (DirectionalLayout.LayoutConfig) image.getLayoutConfig();
+        config.width = width;
+        config.height = height;
+        image.setLayoutConfig(config);
 
     }
 

@@ -1,9 +1,6 @@
 package com.chg.ultimateprovider;
 
-import ohos.agp.components.Component;
-import ohos.agp.components.ComponentContainer;
-import ohos.agp.components.LayoutScatter;
-import ohos.agp.components.RecycleItemProvider;
+import ohos.agp.components.*;
 import ohos.app.Context;
 
 import java.lang.reflect.Constructor;
@@ -122,13 +119,13 @@ public class UltimateProvider<M extends Model> extends RecycleItemProvider {
      * @param position 当前位置
      * @return 返回创建的ViewHolder
      */
-    private ViewHolder createViewHolder(int position){
+    private ViewHolder createViewHolder(int position,ComponentContainer componentContainer){
         M model = models.get(position);
         ViewHolder viewHolder = null;
         Component component = LayoutScatter.getInstance(context).parse(model.getResource(position),null,false);
         try {
-            Constructor constructor = model.getHolderClass(position).getDeclaredConstructor( EventTransmissionListener.class, Component.class, UltimateProvider.class);
-            viewHolder = (ViewHolder) constructor.newInstance(getEventTransmissionListener(), component, this);
+            Constructor constructor = model.getHolderClass(position).getDeclaredConstructor( EventTransmissionListener.class, Component.class, UltimateProvider.class, ComponentContainer.class);
+            viewHolder = (ViewHolder) constructor.newInstance(getEventTransmissionListener(), component, this,componentContainer);
             component.setTag(viewHolder);
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
@@ -147,11 +144,11 @@ public class UltimateProvider<M extends Model> extends RecycleItemProvider {
         ViewHolder viewHolder;
         M model = models.get(i);
         if (component == null) {
-            viewHolder = createViewHolder(i);
+            viewHolder = createViewHolder(i,componentContainer);
         } else {
             viewHolder = (ViewHolder) component.getTag();
             if (!viewHolder.getClass().equals(model.getHolderClass(i))) {
-                viewHolder = createViewHolder(i);
+                viewHolder = createViewHolder(i,componentContainer);
             }
         }
         viewHolder.setPosition(i);

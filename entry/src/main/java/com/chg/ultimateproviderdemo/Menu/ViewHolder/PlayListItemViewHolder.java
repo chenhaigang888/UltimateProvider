@@ -6,6 +6,7 @@ import com.chg.ultimateprovider.ViewHolder;
 import com.chg.ultimateproviderdemo.Menu.Model.PlayListItemModel;
 import com.chg.ultimateproviderdemo.ResourceTable;
 import ohos.agp.components.Component;
+import ohos.agp.components.ComponentContainer;
 import ohos.agp.components.Image;
 import ohos.agp.components.Text;
 
@@ -17,8 +18,8 @@ public class PlayListItemViewHolder extends ViewHolder<PlayListItemModel> {
     private Text collection;
     private Text play;
 
-    public PlayListItemViewHolder(EventTransmissionListener eventTransmissionListener, Component component,UltimateProvider provider) {
-        super(eventTransmissionListener, component,provider);
+    public PlayListItemViewHolder(EventTransmissionListener eventTransmissionListener, Component component, UltimateProvider provider, ComponentContainer componentContainer) {
+        super(eventTransmissionListener, component, provider, componentContainer);
         icon = (Image) findComponentById(ResourceTable.Id_icon);
         name = (Text) findComponentById(ResourceTable.Id_name);
         songer = (Text) findComponentById(ResourceTable.Id_songer);

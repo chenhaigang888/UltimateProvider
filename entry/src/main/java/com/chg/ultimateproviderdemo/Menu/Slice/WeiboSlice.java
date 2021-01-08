@@ -99,7 +99,7 @@ public class WeiboSlice extends AbilitySlice {
                         if (factor.equals("4")) {//精彩小视频
 
                         } else {//发布的内容
-                            ArrayList<FoundSendData> foundSendData = parserJsonArray(gson.toJson(feedExts));
+                            ArrayList<FoundSendData> foundSendData = parserJsonArray(gson.toJson(feedExts),FoundSendData.class);
                             if (isPullRefresh) {
                                 recycleViewData.add(1,foundSendData.get(0));
                             } else {
@@ -107,7 +107,9 @@ public class WeiboSlice extends AbilitySlice {
                             }
                         }
                     } else if (type.equals("2")) {//好友推荐
-
+                        RecommendedFriendModel friendModel = new RecommendedFriendModel();
+                        friendModel.setFriends(parserJsonArray(gson.toJson(feedExts),FoundUserModel.class));
+                        recycleViewData.add(friendModel);
                     }
                 }
 
@@ -123,8 +125,8 @@ public class WeiboSlice extends AbilitySlice {
         });
     }
 
-    public ArrayList<FoundSendData> parserJsonArray(String strJson) {
-        ArrayList<FoundSendData> list = new ArrayList<>();
+    public ArrayList parserJsonArray(String strJson,Class classT) {
+        ArrayList list = new ArrayList<>();
         //创建一个Gson对象
         Gson gson = new Gson();
         //创建一个JsonParser
@@ -148,10 +150,11 @@ public class WeiboSlice extends AbilitySlice {
         while (it.hasNext()) {
             JsonElement e = (JsonElement) it.next();
             //JsonElement转换为JavaBean对象
-            list.add(gson.fromJson(e, FoundSendData.class));
+            list.add(gson.fromJson(e, classT));
         }
         return list;
     }
+
     public FunctionArea getFunctionArea() {
         if (functionArea == null) {
             functionArea = new FunctionArea();
