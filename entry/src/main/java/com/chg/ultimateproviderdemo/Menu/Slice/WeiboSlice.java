@@ -1,15 +1,12 @@
 package com.chg.ultimateproviderdemo.Menu.Slice;
 
-import com.chg.ultimateprovider.Model;
 import com.chg.ultimateprovider.UltimateProvider;
 import com.chg.ultimateproviderdemo.Menu.Model.*;
 import com.chg.ultimateproviderdemo.ResourceTable;
 import com.google.gson.*;
 import ohos.aafwk.ability.AbilitySlice;
 import ohos.aafwk.content.Intent;
-import ohos.agp.components.Component;
 import ohos.agp.components.ListContainer;
-
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -53,6 +50,7 @@ public class WeiboSlice extends AbilitySlice {
         }
         return provider;
     }
+
     private void postAsynHttp() {
         isLoading = true;
         pageIndex += 1;
