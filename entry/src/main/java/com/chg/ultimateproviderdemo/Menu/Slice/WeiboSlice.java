@@ -1,6 +1,6 @@
 package com.chg.ultimateproviderdemo.Menu.Slice;
 
-import com.chg.ultimateprovider.UltimateProvider;
+import com.github.chenhaigang888.UltimateProvider;
 import com.chg.ultimateproviderdemo.Menu.Model.*;
 import com.chg.ultimateproviderdemo.ResourceTable;
 import com.google.gson.*;

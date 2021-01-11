@@ -1,6 +1,6 @@
 package com.chg.ultimateproviderdemo.slice.model;
 
-import com.chg.ultimateprovider.Model;
+import com.github.chenhaigang888.Model;
 import com.chg.ultimateproviderdemo.ResourceTable;
 import com.chg.ultimateproviderdemo.slice.ViewHolder.MenuItemViewHolder;
 

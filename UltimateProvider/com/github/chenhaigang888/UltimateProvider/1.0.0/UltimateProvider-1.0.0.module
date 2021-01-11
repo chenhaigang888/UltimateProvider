@@ -1,0 +1,59 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.github.chenhaigang888",
+    "module": "UltimateProvider",
+    "version": "1.0.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.3",
+      "buildId": "axxijok66jfs7m6votfrh64whi"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseApiPublish",
+      "attributes": {
+        "com.huawei.ohos.build.model.transform.HarmonyTypeAttr": "Har",
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "UltimateProvider-1.0.0.har",
+          "url": "UltimateProvider-1.0.0.har",
+          "size": 6604,
+          "sha512": "a8bd00ae156f9d562911fbd0866af9a703c4f77db61233314185cd21360e40378d1c58747cd9f5edf80aba8a791524f9cac98d5881c5c53b781bc1d345c6d20a",
+          "sha256": "584f42ea537eada9cac41aae7ba1514cdebc591c27172e0c18ff3d90a1afd0a2",
+          "sha1": "2bad3db02b66b277c7e64d4edf6b6537480b33a5",
+          "md5": "fd11ad1b38d008d6c80f4eccbfa43c53"
+        }
+      ]
+    },
+    {
+      "name": "releaseRuntimePublish",
+      "attributes": {
+        "com.huawei.ohos.build.model.transform.HarmonyTypeAttr": "Har",
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "UltimateProvider-1.0.0.har",
+          "url": "UltimateProvider-1.0.0.har",
+          "size": 6604,
+          "sha512": "a8bd00ae156f9d562911fbd0866af9a703c4f77db61233314185cd21360e40378d1c58747cd9f5edf80aba8a791524f9cac98d5881c5c53b781bc1d345c6d20a",
+          "sha256": "584f42ea537eada9cac41aae7ba1514cdebc591c27172e0c18ff3d90a1afd0a2",
+          "sha1": "2bad3db02b66b277c7e64d4edf6b6537480b33a5",
+          "md5": "fd11ad1b38d008d6c80f4eccbfa43c53"
+        }
+      ]
+    }
+  ]
+}

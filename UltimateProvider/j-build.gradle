@@ -1,15 +1,21 @@
 apply plugin: 'maven-publish'
+apply plugin: 'signing'
+
+signing {
+    sign configurations.archives
+}
 
 def DEFAULT_POM_NAME='UltimateProvider'
 def DEFAULT_POM_VERSION='1.0.0'  //har包版本信息
 def DEFAULT_POM_ARTIFACT_ID="ultimateprovider"  //har包ID
-def DEFAULT_POM_GROUP_ID='com.chg.ultimateprovider'  //项目组ID
+def DEFAULT_POM_GROUP_ID='com.github.chenhaigang888'  //项目组ID
 def DEFAULT_POM_PACKAGING='har'  //包类型，固定为har
 def DEFAULT_POM_DESCRIPTION='不需要使用Provider就可以快速使用ListContainer'
-def MAVEN_USERNAME='chen'   //远程Maven仓的用户名
-def MAVEN_PASSWORD='fe95a9df8dff13570f2cd3febc0d44bf63a03761'  //远程Maven仓的密码
-def LOCAL_MAVEN_REPOSITORY_URL='D:/01.localMaven/'  //本地Maven仓地址
-def REMOTE_MAVEN_REPOSITORY_URL='https://bintray.com/chenhaigang888/maven/UltimateProvider'  //远程Maven仓地址
+def MAVEN_USERNAME='chenhaigang'   //远程Maven仓的用户名
+def MAVEN_PASSWORD='*Lchgok007Lchgok007'  //远程Maven仓的密码
+def LOCAL_MAVEN_REPOSITORY_URL=''  //本地Maven仓地址
+def secret_Key_Ring_File="/Users/dnaer5/Desktop/chenhaigang_private.asc"
+def REMOTE_MAVEN_REPOSITORY_URL='https://oss.sonatype.org/service/local/staging/deploy/maven2'  //远程Maven仓地址
 
 afterEvaluate { project ->
     DEFAULT_POM_ARTIFACT_ID = project.name
@@ -20,22 +26,25 @@ afterEvaluate { project ->
                 group = DEFAULT_POM_GROUP_ID
                 artifactId = DEFAULT_POM_ARTIFACT_ID
                 version = DEFAULT_POM_VERSION
+
                 pom {
                     name = DEFAULT_POM_NAME
                     description = DEFAULT_POM_DESCRIPTION
                     packaging = DEFAULT_POM_PACKAGING
+
                 }
             }
         }
         repositories {
+
             maven {
-                url = LOCAL_MAVEN_REPOSITORY_URL  //发布到本地Maven仓
+//                url = LOCAL_MAVEN_REPOSITORY_URL  //发布到本地Maven仓
                 //发布到远程Maven仓的地址以及Maven仓的帐号和密码
-                /*url = REMOTE_MAVEN_REPOSITORY_URL
+                url = REMOTE_MAVEN_REPOSITORY_URL
                  credentials {
                     username MAVEN_USERNAME
                     password MAVEN_PASSWORD
-               }*/
+               }
             }
         }
     }

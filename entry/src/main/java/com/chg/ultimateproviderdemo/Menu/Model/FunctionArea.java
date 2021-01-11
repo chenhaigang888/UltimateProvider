@@ -1,6 +1,6 @@
 package com.chg.ultimateproviderdemo.Menu.Model;
 
-import com.chg.ultimateprovider.Model;
+import com.github.chenhaigang888.Model;
 import com.chg.ultimateproviderdemo.Menu.ViewHolder.HorizontalScrollViewHolder;
 import com.chg.ultimateproviderdemo.ResourceTable;
 

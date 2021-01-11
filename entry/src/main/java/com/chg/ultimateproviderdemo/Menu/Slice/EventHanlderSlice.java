@@ -1,8 +1,8 @@
 package com.chg.ultimateproviderdemo.Menu.Slice;
 
-import com.chg.ultimateprovider.EventTransmissionListener;
-import com.chg.ultimateprovider.Model;
-import com.chg.ultimateprovider.UltimateProvider;
+import com.github.chenhaigang888.EventTransmissionListener;
+import com.github.chenhaigang888.Model;
+import com.github.chenhaigang888.UltimateProvider;
 import com.chg.ultimateproviderdemo.Menu.Model.PlayListItemModel;
 import com.chg.ultimateproviderdemo.Menu.ViewHolder.PlayListItemViewHolder;
 import com.chg.ultimateproviderdemo.ResourceTable;

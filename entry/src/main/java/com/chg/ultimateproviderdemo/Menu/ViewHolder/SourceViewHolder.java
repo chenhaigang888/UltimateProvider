@@ -1,10 +1,8 @@
 package com.chg.ultimateproviderdemo.Menu.ViewHolder;
 
-import com.chg.ultimateprovider.EventTransmissionListener;
-import com.chg.ultimateprovider.Model;
-import com.chg.ultimateprovider.UltimateProvider;
-import com.chg.ultimateprovider.ViewHolder;
-import com.chg.ultimateproviderdemo.Menu.Model.FoundSendData;
+import com.github.chenhaigang888.EventTransmissionListener;
+import com.github.chenhaigang888.UltimateProvider;
+import com.github.chenhaigang888.ViewHolder;
 import com.chg.ultimateproviderdemo.Menu.Model.Source;
 import com.chg.ultimateproviderdemo.ResourceTable;
 
@@ -12,7 +10,6 @@ import ohos.agp.components.Component;
 import ohos.agp.components.ComponentContainer;
 import ohos.agp.components.DirectionalLayout;
 import ohos.agp.components.Image;
-import ohos.agp.text.Layout;
 import ohos.global.configuration.DeviceCapability;
 import ohos.media.image.ImageSource;
 import okhttp3.*;

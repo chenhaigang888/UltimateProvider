@@ -1,7 +1,5 @@
 package com.chg.ultimateproviderdemo.Menu.Model;
 
-import com.chg.ultimateprovider.Model;
-import com.chg.ultimateproviderdemo.Menu.ViewHolder.AlbumViewHolder;
 import com.chg.ultimateproviderdemo.Menu.ViewHolder.NestedAlbumViewHolder;
 import com.chg.ultimateproviderdemo.ResourceTable;
 /**

@@ -1,8 +1,8 @@
 package com.chg.ultimateproviderdemo.slice.ViewHolder;
 
-import com.chg.ultimateprovider.EventTransmissionListener;
-import com.chg.ultimateprovider.UltimateProvider;
-import com.chg.ultimateprovider.ViewHolder;
+import com.github.chenhaigang888.EventTransmissionListener;
+import com.github.chenhaigang888.UltimateProvider;
+import com.github.chenhaigang888.ViewHolder;
 import com.chg.ultimateproviderdemo.ResourceTable;
 import com.chg.ultimateproviderdemo.slice.model.MenuItem;
 import ohos.agp.components.Component;

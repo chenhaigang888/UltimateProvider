@@ -1,7 +1,6 @@
 package com.chg.ultimateproviderdemo.Menu.Slice;
 
-import com.chg.ultimateprovider.Model;
-import com.chg.ultimateprovider.UltimateProvider;
+import com.github.chenhaigang888.UltimateProvider;
 import com.chg.ultimateproviderdemo.Menu.Model.SongModel;
 import com.chg.ultimateproviderdemo.ResourceTable;
 import ohos.aafwk.ability.AbilitySlice;

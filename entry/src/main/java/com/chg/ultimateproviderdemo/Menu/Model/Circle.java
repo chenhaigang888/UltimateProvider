@@ -1,8 +1,8 @@
 package com.chg.ultimateproviderdemo.Menu.Model;
 
 
-import com.chg.ultimateprovider.Model;
-import com.chg.ultimateprovider.ViewHolder;
+import com.github.chenhaigang888.Model;
+import com.github.chenhaigang888.ViewHolder;
 
 class Circle implements Model {
     @Override

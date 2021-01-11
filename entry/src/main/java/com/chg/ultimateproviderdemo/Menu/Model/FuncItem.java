@@ -1,10 +1,9 @@
 package com.chg.ultimateproviderdemo.Menu.Model;
 
 
-import com.chg.ultimateprovider.Model;
+import com.github.chenhaigang888.Model;
 import com.chg.ultimateproviderdemo.Menu.ViewHolder.FuncItemViewHolder;
 import com.chg.ultimateproviderdemo.ResourceTable;
-import ohos.global.resource.Element;
 
 public class FuncItem implements Model {
 

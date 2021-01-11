@@ -1,7 +1,7 @@
 package com.chg.ultimateproviderdemo.Menu.Slice;
 
-import com.chg.ultimateprovider.EventTransmissionListener;
-import com.chg.ultimateprovider.UltimateProvider;
+import com.github.chenhaigang888.EventTransmissionListener;
+import com.github.chenhaigang888.UltimateProvider;
 import com.chg.ultimateproviderdemo.Menu.CustomData.LoginData;
 import com.chg.ultimateproviderdemo.Menu.Model.*;
 import com.chg.ultimateproviderdemo.ResourceTable;
