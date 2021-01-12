@@ -3,6 +3,7 @@ apply plugin: 'signing'
 
 signing {
     sign configurations.archives
+
 }
 
 def DEFAULT_POM_NAME='UltimateProvider'
@@ -12,16 +13,24 @@ def DEFAULT_POM_GROUP_ID='com.github.chenhaigang888'  //项目组ID
 def DEFAULT_POM_PACKAGING='har'  //包类型，固定为har
 def DEFAULT_POM_DESCRIPTION='不需要使用Provider就可以快速使用ListContainer'
 def MAVEN_USERNAME='chenhaigang'   //远程Maven仓的用户名
-def MAVEN_PASSWORD='*Lchgok007Lchgok007'  //远程Maven仓的密码
+def MAVEN_PASSWORD=''  //远程Maven仓的密码
 def LOCAL_MAVEN_REPOSITORY_URL=''  //本地Maven仓地址
-def secret_Key_Ring_File="/Users/dnaer5/Desktop/chenhaigang_private.asc"
+//def secret_Key_Ring_File="/Users/dnaer5/Desktop/chenhaigang_private.asc"
 def REMOTE_MAVEN_REPOSITORY_URL='https://oss.sonatype.org/service/local/staging/deploy/maven2'  //远程Maven仓地址
+def gitUrl='https://github.com/chenhaigang888/UltimateProvider'
+def siteUrl='https://github.com/chenhaigang888/UltimateProvider'
+
+signing.keyId='43749B88' //的秘钥指纹后八位
+signing.password='' //密钥对的设置的密码
+signing.secretKeyRingFile='/Users/dnaer5/Desktop/chenhaigang_private.asc'   // gpg 路径
+
 
 afterEvaluate { project ->
     DEFAULT_POM_ARTIFACT_ID = project.name
     publishing {
         publications {
             maven(MavenPublication) {
+//                beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
                 from components.release  //指定发布的har包类型为debug或release
                 group = DEFAULT_POM_GROUP_ID
                 artifactId = DEFAULT_POM_ARTIFACT_ID
@@ -31,12 +40,32 @@ afterEvaluate { project ->
                     name = DEFAULT_POM_NAME
                     description = DEFAULT_POM_DESCRIPTION
                     packaging = DEFAULT_POM_PACKAGING
+                    url = gitUrl
+                    scm {
+                        connection = gitUrl
+                        developerConnection = gitUrl
+                        url = siteUrl
+                    }
 
+                    licenses {
+                        license {
+                            name = 'The Apache Software License, Version 2.0'
+                            url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        }
+                    }
+                    developers {
+                        developer {
+                            id = "chenhaigang"
+                            name = "chenhaigang"
+                            email = "chenhaigang888@icloud.com"
+                        }
+                    }
                 }
             }
         }
-        repositories {
 
+
+        repositories {
             maven {
 //                url = LOCAL_MAVEN_REPOSITORY_URL  //发布到本地Maven仓
                 //发布到远程Maven仓的地址以及Maven仓的帐号和密码
@@ -44,8 +73,12 @@ afterEvaluate { project ->
                  credentials {
                     username MAVEN_USERNAME
                     password MAVEN_PASSWORD
+
                }
             }
         }
     }
+
 }
+
+
