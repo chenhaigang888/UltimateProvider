@@ -95,6 +95,16 @@ public class UltimateProvider<M extends Model> extends RecycleItemProvider {
     }
 
     @Override
+    public int getItemComponentType(int position) {
+        return super.getItemComponentType(position);
+    }
+
+    @Override
+    public int getComponentTypeCount() {
+        return super.getComponentTypeCount();
+    }
+
+    @Override
     public int getCount() {
         return models == null ? 0 : models.size();
     }

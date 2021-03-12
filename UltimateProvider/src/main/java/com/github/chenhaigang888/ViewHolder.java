@@ -25,10 +25,11 @@ public abstract class ViewHolder<M extends Model> implements Notify{
     private ComponentContainer componentContainer;
 
     /**
-     *构造方法
-     * @param eventTransmissionListener 事件传输对象
-     * @param component component
-     * @param provider provider
+     *
+     * @param eventTransmissionListener
+     * @param component
+     * @param provider
+     * @param componentContainer
      */
     public ViewHolder(EventTransmissionListener eventTransmissionListener, Component component,UltimateProvider provider,ComponentContainer componentContainer) {
         this.componentContainer = componentContainer;

@@ -1,5 +1,7 @@
 apply plugin: 'com.huawei.ohos.library'
-
+apply plugin: 'maven-publish'
+apply plugin: 'com.novoda.bintray-release'
+apply plugin: 'com.jfrog.bintray'
 ohos {
     compileSdkVersion 4
     defaultConfig {
@@ -12,4 +14,54 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     testCompile'junit:junit:4.12'
 }
-apply from: 'j-build.gradle'
+
+//apply from: 'j-build2.gradle'
+
+
+// 唯一包名，比如implementation 'com.davis.ui.pulltorefresh:pulltorefresh:2.1.0'中的com.davis.ui.pulltorefresh就是这里配置的。
+group = "com.github.chenhaigang888"
+//项目引用的版本号，比如implementation 'com.davis.ui.pulltorefresh:pulltorefresh:2.1.0'中的2.1.0就是这里配置的。
+version = "1.0.1"
+
+
+//
+//bintray {
+//    user = "chenhaigang888"//properties.getProperty("bintray.user") // Bintray的用户名。
+//    key = ""//properties.getProperty("bintray.apikey") // Bintray刚才保存的ApiKey。
+//
+//    configurations = ['archives']
+//    pkg {
+//        repo = "maven"  //Repository名字 需要自己在bintray网站上先添加
+//        name = "UltimateProvider"// 发布到Bintray上的项目名字，这里的名字不是implementation 'com.davis.ui.pulltorefresh:pulltorefresh:2.1.0'中的pulltorefresh。
+//        userOrg = 'chenhaigang888'//Bintray的组织id
+//        websiteUrl = 'https://github.com/chenhaigang888/UltimateProvider'
+//        vcsUrl = 'https://github.com/chenhaigang888/UltimateProvider'
+//        licenses = ["Apache-2.0"]
+//        publish = true // 是否是公开项目。
+//        desc = "UltimateProvider(Adapter)简单快速的使用ListContainer而不需要写Provider。此框架是CHGAdapter的鸿蒙版本"
+//        userOrg = 'chenhaigang888'//Bintray的组织id
+//    }
+//}
+
+
+publish {
+    userOrg = 'maven'
+    groupId = "com.github.chenhaigang888"
+    artifactId = "UltimateProvider"
+    publishVersion = "1.0.0"
+    //项目描述
+    desc = 'UltimateProvider(Adapter)简单快速的使用ListContainer而不需要写Provider。此框架是CHGAdapter的鸿蒙版本'
+    //项目网址
+    website = 'https://github.com/chenhaigang888/UltimateProvider'
+    //bintray 的用户名
+    bintrayUser = 'chenhaigang888'
+    //bintray 用户名
+    userOrg = 'chenhaigang888'
+    //API Key
+    bintrayKey = "fe95a9df8dff13570f2cd3febc0d44bf63a03761"
+    dryRun = false
+}
+
+
+sourceCompatibility = "8"
+targetCompatibility = "8"
